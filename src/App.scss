@@ -1,0 +1,11 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.app__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

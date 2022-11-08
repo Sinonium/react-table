@@ -1,0 +1,53 @@
+div {
+	text-align: left;
+	font-family: 'Inter';
+	padding: 1rem;
+
+	table {
+		min-width: 800px;
+		max-width: 900px;
+		border-spacing: 0;
+		box-shadow: 0px 45px 112px rgba(0, 0, 0, 0.07),
+			0px 22.7812px 48.825px rgba(0, 0, 0, 0.0505),
+			0px 9px 18.2px rgba(0, 0, 0, 0.04),
+			0px 1.96875px 6.475px rgba(0, 0, 0, 0.0295);
+		border-radius: 10px;
+
+		tr {
+			:last-child {
+				td {
+					border-bottom: 0;
+				}
+			}
+		}
+		th,
+		td {
+			margin: 0;
+			padding: 0.5rem;
+			border-bottom: 1px solid #e1cfff;
+
+			:last-child {
+				border-right: 0;
+			}
+		}
+		th {
+			font-weight: 500;
+			font-size: 13px;
+			line-height: 19px;
+			color: #0f1419;
+			.filter-input {
+				padding: 10px 5px 10px 0;
+				input {
+					max-width: 140px;
+					border-right: 1px solid #0f1419;
+				}
+			}
+		}
+		td {
+			font-weight: 400;
+			font-size: 13px;
+			line-height: 19px;
+			color: #333333;
+		}
+	}
+}

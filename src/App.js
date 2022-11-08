@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import List from './components/List';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [data, setData] = useState([])
+
+	const fetchData = async() => {
+		const response = await fetch('user_data_1000.json')
+		const json = await response.json()
+		setData(json)
+	}
+
+	useEffect(() => {
+		fetchData() 
+	}, [])
+
+	const columns = React.useMemo(() => [
+		{
+			Header: 'Name',
+			accessor: 'first_name',
+		},
+		{
+			Header: 'Last name',
+			accessor: 'last_name',
+		},
+		{
+			Header: 'Email',
+			accessor: 'email',
+		},
+		{
+			Header: 'IP address',
+			accessor: 'ip_address',
+		},
+		{
+			Header: 'Gender',
+			accessor: 'gender',
+		},
+	]);
+
+	return (
+		<div className='container'>
+			<div className='app__wrapper'>
+				<List columns={columns} data={data} />
+			</div>
+		</div>
+	);
 }
 
 export default App;
